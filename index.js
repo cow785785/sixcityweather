@@ -33,14 +33,29 @@ cityselect.addEventListener("change", function () {
   if (cityData) {
     const cityName = cityData.locationName;
     const weatherElements = cityData.weatherElement;
+    const weatherimg = parseInt(
+      weatherElements[0].time[0].parameter.parameterValue
+    );
+    let iconimg = "";
+    if (weatherimg >= 8) {
+      iconimg = `<i class="fa-solid fa-cloud-showers-water"></i>`;
+    } else if (weatherimg > 5) {
+      iconimg = `<i class="fa-solid fa-umbrella"></i>`;
+    } else if (weatherimg > 2) {
+      iconimg = `<i class="fa-solid fa-cloud-rain"></i>`;
+    } else {
+      iconimg = `<i class="fa-solid fa-sun fa-spin fa-spin-reverse"></i>`;
+    }
+    console.log(weatherimg);
     const content = `
       <div>
         <h2>${cityName}</h2>
         <ul>
           <li>天氣狀況：${weatherElements[0].time[0].parameter.parameterName}</li>
-          <li>最高溫度：${weatherElements[1].time[0].parameter.parameterName}℃</li>
+          <li>最高溫度：${weatherElements[4].time[0].parameter.parameterName}℃</li>
           <li>最低溫度：${weatherElements[2].time[0].parameter.parameterName}℃</li>
-          <li>身體舒適：${weatherElements[3].time[0].parameter.parameterName}</li> 
+          <li>身體舒適：${weatherElements[3].time[0].parameter.parameterName}</li>
+          <li>天氣圖片：${iconimg}</li>
         </ul>
       </div>
     `;

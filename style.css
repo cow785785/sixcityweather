@@ -7,10 +7,10 @@ body {
   height: 80vh;
 }
 
-.weather {
-  background: url() no-repeat;
-  width: 250px;
-  height: 100px;
-  margin: 10px 2px 10px 6px;
-  padding: 20px 2px 2px 65px;
+li {
+  margin: 7px;
+}
+
+.fa-solid {
+  font-size: 30px;
 }/*# sourceMappingURL=style.css.map */
